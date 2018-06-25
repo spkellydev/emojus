@@ -1,6 +1,7 @@
 const Link = require("../models/Link");
 const router = require("express").Router();
 
+// /api/link-data
 router.get("/", (req, res) => {
   Link.find({})
     .sort("-date")
@@ -10,6 +11,7 @@ router.get("/", (req, res) => {
     });
 });
 
+// /api/link-data/:id
 router.get("/:id", (req, res) => {
   Link.find({ linkId: req.params.id })
     .then(link => {

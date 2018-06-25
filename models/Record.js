@@ -11,7 +11,7 @@ const EmojiRedirect = mongoose.Schema(
     emojiPath: String,
     createdAt: {
       type: Date,
-      expires: "24h"
+      expires: "7d" // set expiry index for document
     }
   },
   { timestamps: true }

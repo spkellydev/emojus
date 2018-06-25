@@ -1,5 +1,6 @@
 const Link = require("../models/Link");
 
+// @TODO move Link api functions to this class
 class LinkController {
   constructor(record, emojis, req) {
     this.record = record;
