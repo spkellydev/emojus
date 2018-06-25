@@ -9,7 +9,11 @@ class App extends Component {
     super();
     this.state = {
       url: "http://",
-      emojis: []
+      emojis: [],
+      error: {
+        status: false,
+        message: ""
+      }
     };
   }
 
@@ -39,7 +43,17 @@ class App extends Component {
         }
       })
         .then(res => {
-          this.setState({ emojis: res.data.emojis });
+          if (res.data.record_created === false) {
+            this.setState({
+              error: { status: true, message: "Could not validate URL" },
+              url: "http://"
+            });
+            return;
+          }
+          this.setState({
+            emojis: res.data.emojis,
+            error: { status: false, message: "" }
+          });
         })
         .catch(err => {
           console.log(err.message);
@@ -77,7 +91,7 @@ class App extends Component {
             value={this.state.url}
           />
         </form>
-        <p>{this.state.emojis.length > 0 ? emojis : ""}</p>
+        <p>{this.state.error.status ? this.state.error.message : emojis}</p>
       </div>
     );
   }
