@@ -14,14 +14,7 @@ const routesClient = require("./routes/client");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-function ignoreFavicon(req, res, next) {
-  if (req.originalUrl === "/favicon.ico") {
-    res.status(204).json({ nope: true });
-  } else {
-    next();
-  }
-}
-app.use(ignoreFavicon);
+// app.use(ignoreFavicon);
 app.use("/api", routesApi);
 app.use(routesClient);
 app.use("/", express.static(path.join(__dirname, "./client/build")));
