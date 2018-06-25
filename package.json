@@ -1,0 +1,21 @@
+{
+  "name": "node_perf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "emoji-text": "^0.2.6",
+    "emoji-unicode": "^1.0.9",
+    "express": "^4.16.3",
+    "loadtest": "^3.0.3",
+    "mongoose": "^5.1.6"
+  }
+}
