@@ -52,6 +52,7 @@ class App extends Component {
   render() {
     const emojis = (
       <a
+        target="_blank"
         href={`http://localhost:4000/${this.state.emojis.join("")}`}
       >{`http://localhost:4000/${this.state.emojis.join("")}`}</a>
     );
