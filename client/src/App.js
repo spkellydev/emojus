@@ -13,11 +13,18 @@ class App extends Component {
       error: {
         status: false,
         message: ""
-      }
+      },
+      step: 1
     };
   }
 
   onChange(e) {
+    if (this.state.step !== 2) {
+      this.setState({
+        step: 2
+      });
+    }
+
     this.setState({
       url: e.target.value
     });
@@ -63,6 +70,12 @@ class App extends Component {
     }
   }
 
+  onBlur() {
+    this.setState({
+      step: 3
+    });
+  }
+
   render() {
     const emojis = (
       <a
@@ -71,27 +84,62 @@ class App extends Component {
       >{`http://localhost:4000/${this.state.emojis.join("")}`}</a>
     );
     return (
-      <div>
+      <div className="container grid-lg">
         <header>
           <h1>Emoj.Us</h1>
           <h2>Make your URLs fabulous</h2>
         </header>
         <p>How to use:</p>
-        <ol>
-          <li>Enter URL</li>
-          <li>Get Emojified version of URL</li>
-          <li>Share!</li>
-        </ol>
+        <ul className="step">
+          <li
+            className={this.state.step === 1 ? "step-item active" : "step-item"}
+          >
+            <a
+              href="#!"
+              className="tooltip"
+              data-tooltip="Enter a valid URL with the http:// or https:// prefix"
+            >
+              Enter your URL
+            </a>
+          </li>
+          <li
+            className={this.state.step === 2 ? "step-item active" : "step-item"}
+          >
+            <a
+              href="#!"
+              className="tooltip"
+              data-tooltip="Click the button or hit enter to emojify"
+            >
+              Emojify
+            </a>
+          </li>
+          <li
+            className={this.state.step === 3 ? "step-item active" : "step-item"}
+          >
+            <a href="#!" className="tooltip" data-tooltip="Spread the joy!">
+              Share!
+            </a>
+          </li>
+        </ul>
+
         <form onSubmit={e => this.onSubmit(e)}>
           <input
             onChange={e => this.onChange(e)}
+            onBlur={() => this.onBlur()}
             type="text"
             name="url"
             id="url"
             value={this.state.url}
           />
+          <input
+            className={"btn btn-primary bg-secondary"}
+            type="submit"
+            value="Emojify!"
+          />
         </form>
-        <p>{this.state.error.status ? this.state.error.message : emojis}</p>
+        <p className="emoji-link">
+          {this.state.error.status ? this.state.error.message : emojis}
+        </p>
       </div>
     );
   }

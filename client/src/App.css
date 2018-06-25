@@ -1,0 +1,15 @@
+body {
+  text-align: center;
+}
+
+.step-item > a {
+  cursor: default;
+}
+
+.step-item:not(.active) > a {
+  cursor: progress;
+}
+
+.emoji-link {
+  margin: 20px;
+}
