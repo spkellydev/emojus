@@ -43,7 +43,7 @@ class App extends Component {
 
       axios({
         method: "post",
-        url: "http://206.189.205.219:3000/api/redirect",
+        url: "http://emoj.us/api/redirect",
         data: qs.stringify({ url: url }),
         headers: {
           "Content-type": "application/x-www-form-urlencoded"
