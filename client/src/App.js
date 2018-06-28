@@ -80,8 +80,8 @@ class App extends Component {
     const emojis = (
       <a
         target="_blank"
-        href={`http://206.189.205.219/${this.state.emojis.join("")}`}
-      >{`http://206.189.205.219/${this.state.emojis.join("")}`}</a>
+        href={`http://emoj.us/${this.state.emojis.join("")}`}
+      >{`http://emoj.us/${this.state.emojis.join("")}`}</a>
     );
     return (
       <div className="container grid-lg">
