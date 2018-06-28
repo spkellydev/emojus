@@ -43,7 +43,7 @@ class App extends Component {
 
       axios({
         method: "post",
-        url: "http://localhost:4000/api/redirect",
+        url: "http://206.189.205.219:3000/api/redirect",
         data: qs.stringify({ url: url }),
         headers: {
           "Content-type": "application/x-www-form-urlencoded"
@@ -80,8 +80,8 @@ class App extends Component {
     const emojis = (
       <a
         target="_blank"
-        href={`http://localhost:4000/${this.state.emojis.join("")}`}
-      >{`http://localhost:4000/${this.state.emojis.join("")}`}</a>
+        href={`http://206.189.205.219:3000/${this.state.emojis.join("")}`}
+      >{`http://206.189.205.219:3000/${this.state.emojis.join("")}`}</a>
     );
     return (
       <div className="container grid-lg">
