@@ -6,7 +6,7 @@ const path = require("path");
 const PORT = process.env.port || 3000;
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/emojiredirection");
+mongoose.connect("mongodb://127.0.0.1:27017/emojiredirection");
 
 const app = express();
 const routesApi = require("./routes/api");
