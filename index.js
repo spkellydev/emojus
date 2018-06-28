@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const favicon = require("serve-favicon");
 const path = require("path");
+const PORT = process.env.port || 3000;
 
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/emojiredirection");
@@ -19,4 +20,4 @@ app.use("/api", routesApi);
 app.use(routesClient);
 app.use("/", express.static(path.join(__dirname, "./client/build")));
 
-app.listen(4000, () => console.log("server started"));
+app.listen(PORT, () => console.log("server started"));
