@@ -14,7 +14,7 @@ router.post("/redirect", (req, res, next) => {
   let response = {};
 
   // verify that the url has a vaild DNS by checking if nameservers exist
-  dns.resolve(data.url, "NS", (err, records) => {
+  dns.resolve(data.url, "ANY", (err, records) => {
     if (err) {
       console.log(err);
       response = { record_created: false };
